@@ -24,13 +24,12 @@ public class Login extends HttpServlet {
 		
 		UsuarioDAO uDAO = new UsuarioDAO();
 		usuario = uDAO.getOne(usuario);
-		
 		if (usuario != null) {
 			request.getSession().setAttribute("usuario", usuario);
 			if (usuario.isAdmin())
-				request.getRequestDispatcher("inicioAdmin.jsp").forward(request, response);
+				response.sendRedirect("administrador/inicio.jsp");
 			else {
-				request.getRequestDispatcher("inicioCliente.html").forward(request, response);
+				request.getRequestDispatcher("cliente/inicio.jsp").forward(request, response);
 			}
 		} else {
 			request.setAttribute("mensaje", "Usuario no encontrado");

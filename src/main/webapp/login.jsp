@@ -18,7 +18,7 @@
 	  	<div class="contenedor">
 	     	<div class="input-contenedor">
 		     	<i class="fas fa-envelope icon"></i>
-		        <input name="email" type="text" placeholder="Correo Electronico">
+		        <input name="email" type="text" placeholder="Correo Electronico" autocomplete="on">
 	        </div>
 	         
 	      	<div class="input-contenedor">

@@ -1,10 +1,16 @@
 package entities;
 
 public class Rol {
+	public static final String ADMIN = "admin";
+	public static final String CLIENTE = "cliente";
 	private Integer id;
 	private String tipo;
 	
 	public Rol() {}
+	
+	public Rol(String tipo) {
+		this.tipo = tipo;
+	}
 	
 	public Rol(Integer id, String tipo) {
 		this.id = id;

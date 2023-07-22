@@ -42,4 +42,32 @@ public class RolDAO {
 		return rol;
 	}
 
+	public Rol getByTipo(String tipo) {
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		Rol rol = null;
+		String query = "select roles.* from roles where roles.tipo = ?";
+		try {
+			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
+			statement.setString(1, tipo);
+			rs = statement.executeQuery();
+			if (rs != null && rs.next()) {
+				rol = new Rol();
+				rol.setId(rs.getInt("id"));
+				rol.setTipo(rs.getString("tipo"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(statement != null) {statement.close();}
+				DBConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return rol;
+	}
+
 }

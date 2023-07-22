@@ -30,4 +30,18 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TestController</display-name>
+    <servlet-name>TestController</servlet-name>
+    <servlet-class>servlets.TestController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestController</servlet-name>
+    <url-pattern>/TestController</url-pattern>
+    <url-pattern>/buscarusuario</url-pattern>
+    <url-pattern>/registrarusuario</url-pattern>
+    <url-pattern>/eliminarusuario</url-pattern>
+    <url-pattern>/modificarusuario</url-pattern>
+  </servlet-mapping>
 </web-app>

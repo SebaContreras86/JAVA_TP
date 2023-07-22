@@ -6,11 +6,11 @@ public class Usuario {
 	private String password;
 	private String nombre;
 	private String apellido;
-	private String cuit;
+	private String dni;
 	private String telefono;
 	private String direccion;
 	private Rol rol;
-	private Boolean estado;
+	private Boolean habilitado;
 	
 	public Usuario() {}
 	
@@ -19,6 +19,10 @@ public class Usuario {
 		this.password = password;
 	}
 	
+	public Usuario(String dni) {
+		this.dni = dni;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -49,11 +53,11 @@ public class Usuario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public String getCuit() {
-		return cuit;
+	public String getDNI() {
+		return dni;
 	}
-	public void setCuit(String cuit) {
-		this.cuit = cuit;
+	public void setDNI(String dni) {
+		this.dni = dni;
 	}
 	public String getTelefono() {
 		return telefono;
@@ -67,17 +71,17 @@ public class Usuario {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public Rol getRol() {
-		return rol;
+	public String getRol() {
+		return this.rol.getTipo();
 	}
 	public void setRol(Rol rol) {
 		this.rol = rol;
 	}
-	public Boolean getEstado() {
-		return estado;
+	public Boolean isHabilitado() {
+		return this.habilitado;
 	}
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
+	public void setHabilitado(Boolean habilitado) {
+		this.habilitado = habilitado;
 	}
 	
 	public String getFullName() {
