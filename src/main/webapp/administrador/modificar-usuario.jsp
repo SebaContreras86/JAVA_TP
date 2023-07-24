@@ -15,7 +15,7 @@
 			<li><a href="/alquiler_vehiculos/administrador/inicio.jsp">Inicio</a></li>
 			<li>Usuarios
 				<ul>
-					<li><a href="#">Registrar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/registrar-usuario.jsp">Registrar</a></li>
 					<li><a href="/alquiler_vehiculos/administrador/modificar-usuario.jsp">Modificar</a></li>
 					<li><a href="#">Eliminar</a></li>
 				</ul>

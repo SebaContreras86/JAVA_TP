@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import data.UsuarioDAO;
 import entities.Usuario;
 
-public class BuscarUsuario extends Accion {
+public class BuscarUsuarioAccion extends Accion {
 
 	@Override
 	public String ejecutar(HttpServletRequest request, HttpServletResponse response) {

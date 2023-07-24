@@ -12,7 +12,8 @@ public class UsuarioDAO {
 		Usuario usuario = null;
 		PreparedStatement statement = null;
 		ResultSet rs = null;
-		String query = "select * from usuarios where usuarios.email = ? and usuarios.password = ?";
+		String query = "SELECT * FROM usuarios "
+				+ "WHERE usuarios.email = ? AND usuarios.password = ?";
 		
 		try {
 			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
@@ -53,7 +54,7 @@ public class UsuarioDAO {
 		Usuario usuario = null;
 		PreparedStatement statement = null;
 		ResultSet rs = null;
-		String query = "select * from usuarios where usuarios.dni = ?";
+		String query = "SELECT * FROM usuarios WHERE usuarios.dni = ?";
 		
 		try {
 			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
@@ -90,7 +91,9 @@ public class UsuarioDAO {
 
 	public void update(Usuario usuario) {
 		PreparedStatement statement = null;
-		String query = "UPDATE usuarios SET email = ?, nombre = ?, apellido = ?, dni = ?, telefono = ?, direccion = ?, habilitado = ?, rol = ? WHERE (id = ?)";
+		String query = "UPDATE usuarios "
+				+ "SET email = ?, nombre = ?, apellido = ?, dni = ?, telefono = ?, direccion = ?, habilitado = ?, rol = ? "
+				+ "WHERE (id = ?)";
 
 		try {
 			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
@@ -117,5 +120,39 @@ public class UsuarioDAO {
 				e.printStackTrace();
 			}
 		}		
+	}
+
+	public void add(Usuario usuario) {
+		PreparedStatement statement = null;
+		String query = "INSERT INTO usuarios "
+				+ "(email, password, nombre, apellido, dni, telefono, direccion, habilitado, rol) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		try {
+			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
+			
+			statement.setString(1, usuario.getEmail());
+			statement.setString(2, usuario.getPassword());
+			statement.setString(3, usuario.getNombre());
+			statement.setString(4, usuario.getApellido());
+			statement.setString(5, usuario.getDNI());
+			statement.setString(6, usuario.getTelefono());
+			statement.setString(7, usuario.getDireccion());
+			statement.setBoolean(8, usuario.isHabilitado());
+			
+			RolDAO rDAO = new RolDAO();
+			statement.setInt(9, rDAO.getByTipo(usuario.getRol()).getId());
+			
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(statement != null) {statement.close();}
+				DBConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

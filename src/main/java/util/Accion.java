@@ -10,10 +10,13 @@ public abstract class Accion {
 		Accion accion;
 		switch (tipo) {
 		case "buscarusuario":
-			accion = new BuscarUsuario();
+			accion = new BuscarUsuarioAccion();
 			break;
 		case "modificarusuario":
-			accion = new ModificarUsuario();
+			accion = new ModificarUsuarioAccion();
+			break;
+		case "registrarusuario":
+			accion = new RegistrarUsuarioAccion();
 			break;
 		default:
 			accion = null;

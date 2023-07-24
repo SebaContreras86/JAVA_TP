@@ -10,8 +10,6 @@ import util.Accion;
 
 import java.io.IOException;
 
-import entities.Usuario;
-
 public class TestController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
