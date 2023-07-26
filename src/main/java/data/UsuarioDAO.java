@@ -155,4 +155,26 @@ public class UsuarioDAO {
 			}
 		}
 	}
+
+	public void delete(Usuario usuario) {
+		PreparedStatement statement = null;
+		String query = "DELETE FROM usuarios WHERE id = ?";
+
+		try {
+			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
+			statement.setInt(1, usuario.getId());
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(statement != null) {statement.close();}
+				DBConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

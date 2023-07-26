@@ -16,11 +16,12 @@ public class BuscarUsuarioAccion extends Accion {
 		usuario = uDAO.getByDNI(usuario);
 		
 		if (usuario != null) {
-			request.setAttribute("usuarioBuscado", usuario);
+			request.getSession().setAttribute("usuarioBuscado", usuario);
 		} else {
 			request.setAttribute("notFound", "Usuario no encontrado");
 		}
-		return "administrador/modificar-usuario.jsp";
+		
+		return (String) request.getSession().getAttribute("returnTo");
 	}
 
 }

@@ -1,7 +1,6 @@
 package data;
 
 import entities.Rol;
-import entities.Usuario;
 
 public class Test {
 

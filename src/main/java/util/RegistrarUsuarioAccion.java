@@ -13,27 +13,27 @@ public class RegistrarUsuarioAccion extends Accion {
 		Usuario usuario = new Usuario();
 		if (!request.getParameter("email").matches(Regex.EMAIL.getRegex())) {
 			request.setAttribute("invalidData", "E-mail no válido");
-			return "administrador/agregar-usuario.jsp";
+			return "administrador/registrar-usuario.jsp";
 		}
 		if (!request.getParameter("nombre").matches(Regex.NOMBRE_APELLIDO.getRegex())) {
 			request.setAttribute("invalidData", "Nombre no válido");
-			return "administrador/agregar-usuario.jsp";
+			return "administrador/registrar-usuario.jsp";
 		}
 		if (!request.getParameter("apellido").matches(Regex.NOMBRE_APELLIDO.getRegex())) {
 			request.setAttribute("invalidData", "Apellido no válido");
-			return "administrador/agregar-usuario.jsp";
+			return "administrador/registrar-usuario.jsp";
 		}
 		if (!request.getParameter("dni").matches(Regex.DNI.getRegex())) {
 			request.setAttribute("invalidData", "DNI no válido");
-			return "administrador/agregar-usuario.jsp";
+			return "administrador/registrar-usuario.jsp";
 		}
 		if (!request.getParameter("telefono").matches(Regex.TELEFONO.getRegex())) {
 			request.setAttribute("invalidData", "Número de teléfono no válido");
-			return "administrador/agregar-usuario.jsp";
+			return "administrador/registrar-usuario.jsp";
 		}
 		if (!request.getParameter("direccion").matches(Regex.DIRECCION.getRegex())) {
 			request.setAttribute("invalidData", "Dirección no válida");
-			return "administrador/agregar-usuario.jsp";
+			return "administrador/registrar-usuario.jsp";
 		}
 		
 		usuario.setEmail(request.getParameter("email"));
@@ -54,7 +54,7 @@ public class RegistrarUsuarioAccion extends Accion {
 		uDAO.add(usuario);
 		request.setAttribute("succes", "Usuario registrado correctamente!");
 		
-		return "administrador/agregar-usuario.jsp";
+		return "administrador/registrar-usuario.jsp";
 	}
 
 }

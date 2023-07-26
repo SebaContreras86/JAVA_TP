@@ -18,6 +18,9 @@ public abstract class Accion {
 		case "registrarusuario":
 			accion = new RegistrarUsuarioAccion();
 			break;
+		case "eliminarusuario":
+			accion = new EliminarUsuarioAccion();
+			break;
 		default:
 			accion = null;
 			break;

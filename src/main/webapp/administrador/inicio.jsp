@@ -16,7 +16,7 @@
 				<ul>
 					<li><a href="registrar-usuario.jsp">Registrar</a></li>
 					<li><a href="modificar-usuario.jsp">Modificar</a></li>
-					<li><a href="#">Eliminar</a></li>
+					<li><a href="eliminar-usuario.jsp">Eliminar</a></li>
 				</ul>
 			</li>
 			<li><a href="../Logout">Cerrar sesión</a></li>

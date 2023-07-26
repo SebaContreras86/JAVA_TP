@@ -17,7 +17,7 @@
 				<ul>
 					<li><a href="/alquiler_vehiculos/administrador/registrar-usuario.jsp">Registrar</a></li>
 					<li><a href="/alquiler_vehiculos/administrador/modificar-usuario.jsp">Modificar</a></li>
-					<li><a href="#">Eliminar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/eliminar-usuario.jsp">Eliminar</a></li>
 				</ul>
 			</li>
 			<li><a href="/alquiler_vehiculos/Logout">Cerrar sesión</a></li>
@@ -90,5 +90,6 @@
 		<c:if test="${invalidData != null}"><span> <c:out value="${invalidData}"/> </span></c:if>
 		<c:if test="${notFound != null}"><span> <c:out value="${notFound}"/> </span></c:if>
 	</main>
+	<c:set var="returnTo" scope="session" value="administrador/modificar-usuario.jsp"/>
 </body>
 </html>

@@ -10,7 +10,6 @@ public class ModificarUsuarioAccion extends Accion {
 
 	@Override
 	public String ejecutar(HttpServletRequest request, HttpServletResponse response) {		
-		Usuario usuario = new Usuario();
 		if (!request.getParameter("email").matches(Regex.EMAIL.getRegex())) {
 			request.setAttribute("invalidData", "E-mail no válido");
 			return "administrador/modificar-usuario.jsp";
@@ -35,6 +34,8 @@ public class ModificarUsuarioAccion extends Accion {
 			request.setAttribute("invalidData", "Dirección no válida");
 			return "administrador/modificar-usuario.jsp";
 		}
+		
+		Usuario usuario = new Usuario();
 		usuario.setId(Integer.parseInt(request.getParameter("id")));
 		usuario.setEmail(request.getParameter("email"));
 		usuario.setNombre(request.getParameter("nombre"));
@@ -51,6 +52,8 @@ public class ModificarUsuarioAccion extends Accion {
 		
 		UsuarioDAO uDAO = new UsuarioDAO();
 		uDAO.update(usuario);
+		
+		request.getSession().removeAttribute("usuarioBuscado");
 		request.setAttribute("succes", "Modificación completada");
 		
 		return "administrador/modificar-usuario.jsp";
