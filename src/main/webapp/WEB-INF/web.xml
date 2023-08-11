@@ -43,5 +43,7 @@
     <url-pattern>/registrarusuario</url-pattern>
     <url-pattern>/eliminarusuario</url-pattern>
     <url-pattern>/modificarusuario</url-pattern>
+    <url-pattern>/buscarvehiculo</url-pattern>
+    <url-pattern>/modificarvehiculo</url-pattern>
   </servlet-mapping>
 </web-app>

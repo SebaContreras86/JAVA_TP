@@ -1,0 +1,93 @@
+.main {
+    display: grid;
+}
+
+.main-register {
+    grid-template-rows: 15% auto ;
+    grid-template-areas:
+        'h1'
+        'data-section';
+}
+
+.main-modify {
+    grid-template-rows: 10% 15% auto;
+    grid-template-areas: 
+        'h1'
+        'search'
+        'data-section';
+}
+
+.main-delete {
+    grid-template-rows: 10% 15% auto;
+    grid-template-areas: 
+        'h1'
+        'search'
+        'delete-section';
+}
+
+.main > h1 {
+    grid-area: h1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    grid-area: search;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-section {
+    grid-area: data-section;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data-section > form {
+    width: 40%;
+}
+
+.data-section > form > fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.data-section label {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+
+.delete-section {
+    grid-area: delete-section;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-to-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.delete {
+    text-align: center;
+}
+
+.fa-triangle-exclamation {
+    color: #f1c40f;
+}
+
+.fa-face-angry {
+    color: white ;
+}

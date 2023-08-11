@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import = "entities.Rol" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,14 +40,14 @@
 		</ul>
 	</nav>
 	<main class="main main-modify">
-		<h1><span>Modificar usuario</span></h1>
+		<h1><span>Modificar vehículo</span></h1>
 		<section class="search">
 	<%-- FORMULARIO DE BUSQUEDA --%>
-			<form action="/alquiler_vehiculos/buscarusuario" method="post">
+			<form action="/alquiler_vehiculos/buscarvehiculo" method="post">
 				<fieldset>
-					<legend>Buscar por DNI</legend>
-					<label for="dni">DNI</label>
-					<input type="text" id="dni" name="dni">
+					<legend>Buscar por patente</legend>
+					<label for="dni">Patente</label>
+					<input type="text" id="patente" name="patente">
 					<input type="submit" value="Buscar">
 				</fieldset>
 			</form>
@@ -56,60 +56,48 @@
 		
 		<section class="data-section">
 	<%-- FORMULARIO DE MODIFICACIÓN --%>
-		<c:if test="${usuarioBuscado != null}">
-			<form action="/alquiler_vehiculos/modificarusuario" method="post">
+		<c:if test="${vehiculoBuscado != null}">
+			<form action="/alquiler_vehiculos/modificarvehiculo" method="post">
 				<fieldset>
-					<legend>Datos del usuario</legend>
-					<input type="hidden" id="id" name="id" value="${usuarioBuscado.getId()}">
+					<legend>Datos del vehículo</legend>
 					<div>
-						<label for="email">E-mail</label>
-						<input type="email" id="email" name="email" value="${usuarioBuscado.getEmail()}">
+						<label for="patente">Patente</label>
+						<input type="text" id="patente" name="patente" value="${vehiculoBuscado.getPatente()}">
 					</div>
 					<div>
-						<label for="nombre">Nombre</label>
-						<input type="text" id="nombre" name="nombre" value="${usuarioBuscado.getNombre()}">
+						<label for="nro-carroceria">Nro de carrocería</label>
+						<input type="text" id="nro-carroceria" name="nro-carroceria" value="${vehiculoBuscado.getNroCarroceria()}">
 					</div>
 					<div>
-						<label for="apellido">Apellido</label>
-						<input type="text" id="apellido" name="apellido" value="${usuarioBuscado.getApellido()}">
+						<label for="marca">Marca</label>
+						<input type="text" id="marca" name="marca" value="${vehiculoBuscado.getMarca()}">
 					</div>
 					<div>
-						<label for="dni">DNI</label>
-						<input type="text" id="dni" name="dni" value="${usuarioBuscado.getDNI()}">
+						<label for="kilometraje">Kilometraje</label>
+						<input type="text" id="kilometraje" name="kilometraje" value="${vehiculoBuscado.getKilometraje()}">
 					</div>
 					<div>
-						<label for="telefono">Teléfono</label>
-						<input type="text" id="telefono" name="telefono" value="${usuarioBuscado.getTelefono()}">
+						<label for="anio">Año</label>
+						<input type="text" id="anio" name="anio" value="${vehiculoBuscado.getAnio()}">
 					</div>
 					<div>
-						<label for="direccion">Dirección</label>
-						<input type="text" id="direccion" name="direccion" value="${usuarioBuscado.getDireccion()}">
-					</div>
-					<div>
-						<label for="tipo">Tipo de usuario</label>
+						<label for="tipo">Tipo de vehículo</label>
 						<select name="tipo" id="tipo">
-						<c:choose>
-							<c:when test="${usuarioBuscado.isAdmin()}">
-								<option value="${Rol.ADMIN}" selected>Administrador</option>
-								<option value="${Rol.CLIENTE}">Cliente</option>
-							</c:when>
-							<c:otherwise>
-								<option value="${Rol.ADMIN}">Administrador</option>
-								<option value="${Rol.CLIENTE}" selected>Cliente</option>
-							</c:otherwise>
-						</c:choose>
+							<c:forEach items="${tiposVehiculos}" var="tipo">
+								<c:choose>
+									<c:when test="${vehiculoBuscado.getTipoVehiculo().equals(tipo)}">
+										<option value="${tipo.getTipo()}" selected>
+											<c:out value="${tipo.getTipo().toUpperCase()}"/>
+										</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${tipo.getTipo()}">
+											<c:out value="${tipo.getTipo().toUpperCase()}"/>
+										</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 						</select>
-					</div>
-					<div>
-						<label for="habilitado">Habilitado</label>
-						<c:choose>
-							<c:when test="${usuarioBuscado.isHabilitado()}">
-								<input type="checkbox" checked="checked" id="habilitado" name="habilitado">
-							</c:when>
-							<c:otherwise>
-								<input type="checkbox" id="habilitado" name="habilitado">
-							</c:otherwise>
-						</c:choose>
 					</div>
 					<input type="submit" value="Modificar">
 				</fieldset>
@@ -120,6 +108,6 @@
 		<c:if test="${invalidData != null}"><span> <c:out value="${invalidData}"/> </span></c:if>
 		</section>
 	</main>
-	<c:set var="returnTo" scope="session" value="administrador/modificar-usuario.jsp"/>
+	<c:set var="returnTo" scope="session" value="administrador/modificar-vehiculo.jsp"/>
 </body>
 </html>

@@ -15,10 +15,10 @@ public class RolDAO {
 		PreparedStatement statement = null;
 		ResultSet rs = null;
 		Rol rol = null;
-		String query = "select roles.* from roles "
-				+ "inner join usuarios "
-				+ "on usuarios.rol = roles.id "
-				+ "where usuarios.id = ?";
+		String query = "SELECT roles.* FROM roles "
+				+ "INNER JOIN usuarios "
+				+ "ON usuarios.rol = roles.id "
+				+ "WHERE usuarios.id = ?";
 		try {
 			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
 			statement.setInt(1, usuario.getId());
@@ -46,7 +46,7 @@ public class RolDAO {
 		PreparedStatement statement = null;
 		ResultSet rs = null;
 		Rol rol = null;
-		String query = "select roles.* from roles where roles.tipo = ?";
+		String query = "SELECT roles.* FROM roles WHERE roles.tipo = ?";
 		try {
 			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
 			statement.setString(1, tipo);

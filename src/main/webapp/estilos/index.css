@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 'nav main';
+    grid-template-columns: minmax(min-content, 15%) 85%;
+}
+
+.nav-bar {
+    grid-area: nav;
+    padding: 5px;
+    border-right: 1px solid black;
+}
+
+.main {
+    grid-area: main;
+}

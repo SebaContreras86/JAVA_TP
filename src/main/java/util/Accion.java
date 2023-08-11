@@ -21,6 +21,12 @@ public abstract class Accion {
 		case "eliminarusuario":
 			accion = new EliminarUsuarioAccion();
 			break;
+		case "buscarvehiculo":
+			accion = new BuscarVehiculoAccion();
+			break;
+		case "modificarvehiculo":
+			accion = new ModificarVehiculoAccion();
+			break;
 		default:
 			accion = null;
 			break;
