@@ -31,7 +31,7 @@
 			</li>
 			<li>Vehículos
 				<ul>
-					<li><a href="#">Registrar</a></li>
+					<li><a href="/alquiler_vehiculos/LoadPage">Registrar</a></li>
 					<li><a href="/alquiler_vehiculos/administrador/modificar-vehiculo.jsp">Modificar</a></li>
 					<li><a href="#">Eliminar</a></li>
 				</ul>

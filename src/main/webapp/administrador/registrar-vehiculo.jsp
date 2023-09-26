@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="/alquiler_vehiculos/estilos/index.css">
 	<link rel="stylesheet" href="/alquiler_vehiculos/estilos/abm-usuarios.css">
-	<title>Xtreme - Admin</title>
+	<title>Xtreme-Admin</title>
 </head>
 <body>
 	<nav class="nav-bar">
@@ -39,75 +38,50 @@
 			<li><a href="/alquiler_vehiculos/Logout">Cerrar sesión</a></li>
 		</ul>
 	</nav>
-	<main class="main main-modify">
-		<h1><span>Modificar vehículo</span></h1>
-		<section class="search">
-	<%-- FORMULARIO DE BUSQUEDA --%>
-			<form action="/alquiler_vehiculos/buscarvehiculo" method="post">
-				<fieldset>
-					<legend>Buscar por patente</legend>
-					<label for="dni">Patente</label>
-					<input type="text" id="patente" name="patente">
-					<input type="submit" value="Buscar">
-				</fieldset>
-			</form>
-			<c:if test="${notFound != null}"><span> <c:out value="${notFound}"/> </span></c:if>
-		</section>
-		
+	<main class="main main-register">
+		<h1><span>Registrar vehículo</span></h1>
+	<%-- FORMULARIO DE REGISTRO --%>
 		<section class="data-section">
-	<%-- FORMULARIO DE MODIFICACIÓN --%>
-		<c:if test="${vehiculoBuscado != null}">
-			<form action="/alquiler_vehiculos/modificarvehiculo" method="post">
+			<form action="/alquiler_vehiculos/registrarvehiculo" method="post">
 				<fieldset>
 					<legend>Datos del vehículo</legend>
 					<div>
 						<label for="patente">Patente</label>
-						<input type="text" id="patente" name="patente" value="${vehiculoBuscado.getPatente()}">
+						<input type="text" id="patente" name="patente">
 					</div>
 					<div>
 						<label for="nro-carroceria">Nro de carrocería</label>
-						<input type="text" id="nro-carroceria" name="nro-carroceria" value="${vehiculoBuscado.getNroCarroceria()}">
+						<input type="text" id="nro-carroceria" name="nro-carroceria">
 					</div>
 					<div>
 						<label for="marca">Marca</label>
-						<input type="text" id="marca" name="marca" value="${vehiculoBuscado.getMarca()}">
+						<input type="text" id="marca" name="marca">
 					</div>
 					<div>
 						<label for="kilometraje">Kilometraje</label>
-						<input type="text" id="kilometraje" name="kilometraje" value="${vehiculoBuscado.getKilometraje()}">
+						<input type="text" id="kilometraje" name="kilometraje">
 					</div>
 					<div>
 						<label for="anio">Año</label>
-						<input type="text" id="anio" name="anio" value="${vehiculoBuscado.getAnio()}">
+						<input type="text" id="anio" name="anio">
 					</div>
 					<div>
 						<label for="tipo">Tipo de vehículo</label>
 						<select name="tipo" id="tipo">
-							<c:forEach items="${tiposVehiculos}" var="tipo">
-								<c:choose>
-									<c:when test="${vehiculoBuscado.getTipoVehiculo().equals(tipo)}">
-										<option value="${tipo.getTipo()}" selected>
-											<c:out value="${tipo.getTipo().toUpperCase()}"/>
-										</option>
-									</c:when>
-									<c:otherwise>
-										<option value="${tipo.getTipo()}">
-											<c:out value="${tipo.getTipo().toUpperCase()}"/>
-										</option>
-									</c:otherwise>
-								</c:choose>
+							<c:forEach items="${tvDAO.getAll()}" var="tipo">
+								<option value="${tipo.getTipo()}" selected>
+									<c:out value="${tipo.getTipo().toUpperCase()}"/>
+								</option>
 							</c:forEach>
 						</select>
 					</div>
-					<input type="submit" value="Modificar">
+					<input type="submit" value="Registrar">
 				</fieldset>
 			</form>
-		</c:if>
-	<%-- MENSAJES --%>
-		<c:if test="${succes != null}"><span> <c:out value="${succes}"/> </span></c:if>
-		<c:if test="${invalidData != null}"><span> <c:out value="${invalidData}"/> </span></c:if>
+			<%-- MENSAJES --%>
+			<c:if test="${succes != null}"><span> <c:out value="${succes}"/> </span></c:if>
+			<c:if test="${invalidData != null}"><span> <c:out value="${invalidData}"/> </span></c:if>
 		</section>
 	</main>
-	<c:set var="returnTo" scope="session" value="administrador/modificar-vehiculo.jsp"/>
 </body>
 </html>

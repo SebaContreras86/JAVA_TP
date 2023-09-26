@@ -45,5 +45,17 @@
     <url-pattern>/modificarusuario</url-pattern>
     <url-pattern>/buscarvehiculo</url-pattern>
     <url-pattern>/modificarvehiculo</url-pattern>
+    <url-pattern>/registrarvehiculo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoadPage</display-name>
+    <servlet-name>LoadPage</servlet-name>
+    <servlet-class>servlets.LoadPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoadPage</servlet-name>
+    <url-pattern>/LoadPage</url-pattern>
+    <url-pattern>/registrar-vehiculo</url-pattern>
   </servlet-mapping>
 </web-app>

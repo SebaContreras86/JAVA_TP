@@ -19,7 +19,7 @@ public class BuscarVehiculoAccion extends Accion {
 		
 		if (vehiculo != null) {
 			request.getSession().setAttribute("vehiculoBuscado", vehiculo);
-			request.getSession().setAttribute("tiposVehiculos", tvDAO.getAll());
+			request.setAttribute("tiposVehiculos", tvDAO.getAll());
 		} else {
 			request.setAttribute("notFound", "Vehículo no encontrado");
 		}

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href="/alquiler_vehiculos/estilos/index.css">
 	<link rel="stylesheet" href="/alquiler_vehiculos/estilos/abm-usuarios.css">
 	<title>Xtreme - Admin</title>
@@ -31,7 +31,7 @@
 			</li>
 			<li>Vehículos
 				<ul>
-					<li><a href="#">Registrar</a></li>
+					<li><a href="/alquiler_vehiculos/LoadPage">Registrar</a></li>
 					<li><a href="/alquiler_vehiculos/administrador/modificar-vehiculo.jsp">Modificar</a></li>
 					<li><a href="#">Eliminar</a></li>
 				</ul>

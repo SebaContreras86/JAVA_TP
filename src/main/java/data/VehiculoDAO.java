@@ -76,4 +76,37 @@ public class VehiculoDAO {
 			}
 		}	
 	}
+
+	public void add(Vehiculo vehiculo) {
+		PreparedStatement statement = null;
+		String query = "INSERT INTO vehiculos "
+				+ "(patente, nro_carroceria, marca, kilometraje, anio, id_tipo) "
+				+ "VALUES (?, ?, ?, ?, ?, ?)";
+		
+		try {
+			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
+			
+			statement.setString(1, vehiculo.getPatente());
+			statement.setString(2, vehiculo.getNroCarroceria());
+			statement.setString(3, vehiculo.getMarca());
+			statement.setFloat(4, vehiculo.getKilometraje());
+			statement.setString(5, vehiculo.getAnio());
+			
+			TipoVehiculoDAO tvDAO = new TipoVehiculoDAO();
+			TipoVehiculo tv = tvDAO.getByTipo(vehiculo.getTipoVehiculo().getTipo());
+			
+			statement.setInt(6, tv.getId());
+			
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(statement != null) {statement.close();}
+				DBConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
