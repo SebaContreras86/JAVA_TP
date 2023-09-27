@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import = "entities.Rol" %>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 	<link rel="stylesheet" href="/alquiler_vehiculos/estilos/index.css">
 	<link rel="stylesheet" href="/alquiler_vehiculos/estilos/abm-usuarios.css">
-	<title>Xtreme - Admin</title>
+	<title>Xtreme-Admin</title>
 </head>
 <body>
 	<nav class="nav-bar">
@@ -39,40 +38,38 @@
 			<li><a href="/alquiler_vehiculos/Logout">Cerrar sesión</a></li>
 		</ul>
 	</nav>
-	<main class="main main-delete">
-		<h1><span>Eliminar usuario</span></h1>
+		<main class="main main-delete">
+		<h1><span>Eliminar vehículo</span></h1>
 		<section class="search">
 			<%-- FORMULARIO DE BUSQUEDA --%>
-			<form action="/alquiler_vehiculos/buscarusuario" method="post">
+			<form action="/alquiler_vehiculos/buscarvehiculo" method="post">
 				<fieldset>
-					<legend>Buscar por DNI</legend>
-					<label for="dni">DNI</label>
-					<input type="text" id="dni" name="dni">
+					<legend>Buscar por patente</legend>
+					<label for="dni">Patente</label>
+					<input type="text" id="patente" name="patente">
 					<input type="submit" value="Buscar">
 				</fieldset>
 			</form>
 		</section>
+		
 		<section class="delete-section">
-			<%-- DATOS DEL USUARIO A ELIMINAR --%>
-			<c:if test="${usuarioBuscado != null}">
+			<%-- DATOS DEL VEHICULO A ELIMINAR --%>
+			<c:if test="${vehiculoBuscado != null}">
 				<ul>
-					<li>ID: <c:out value="${usuarioBuscado.getId()}"/> </li>
-					<li>E-MAIL: <c:out value="${usuarioBuscado.getEmail()}"/> </li>
-					<li>NOMBRE: <c:out value="${usuarioBuscado.getNombre()}"/> </li>
-					<li>APELLIDO: <c:out value="${usuarioBuscado.getApellido()}"/> </li>
-					<li>DNI: <c:out value="${usuarioBuscado.getDNI()}"/> </li>
-					<li>TELÉFONO: <c:out value="${usuarioBuscado.getTelefono()}"/> </li>
-					<li>DIRECCIÓN: <c:out value="${usuarioBuscado.getDireccion()}"/> </li>
-					<li>TIPO: <c:out value="${usuarioBuscado.getRol()}"/> </li>
-					<li>HABILITADO: <c:out value="${usuarioBuscado.isHabilitado()}"/> </li>
+					<li>PATENTE: <c:out value="${vehiculoBuscado.getPatente().toUpperCase()}"/> </li>
+					<li>CARROCERÍA: <c:out value="${vehiculoBuscado.getNroCarroceria()}"/> </li>
+					<li>MARCA: <c:out value="${vehiculoBuscado.getMarca()}"/> </li>
+					<li>KILOMETRAJE: <c:out value="${vehiculoBuscado.getKilometraje()}"/> Kms</li>
+					<li>AÑO: <c:out value="${vehiculoBuscado.getAnio()}"/> </li>
+					<li>TIPO: <c:out value="${vehiculoBuscado.getTipoVehiculo().getTipo()}"/> </li>
 				</ul>
-				<a href="/alquiler_vehiculos/eliminarusuario">Eliminar</a>
+				<a href="/alquiler_vehiculos/eliminarvehiculo">Eliminar</a>
 			</c:if>
 			<%-- MENSAJES --%>
 			<c:if test="${succes != null}"><span> <c:out value="${succes}"/> </span></c:if>
 			<c:if test="${notFound != null}"><span> <c:out value="${notFound}"/> </span></c:if>
 		</section>
 	</main>
-	<c:set var="returnTo" scope="session" value="administrador/usuarios/eliminar-usuario.jsp"/>
+	<c:set var="returnTo" scope="session" value="administrador/vehiculos/eliminar-vehiculo.jsp"/>
 </body>
 </html>

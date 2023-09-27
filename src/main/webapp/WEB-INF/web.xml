@@ -46,6 +46,7 @@
     <url-pattern>/buscarvehiculo</url-pattern>
     <url-pattern>/modificarvehiculo</url-pattern>
     <url-pattern>/registrarvehiculo</url-pattern>
+    <url-pattern>/eliminarvehiculo</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

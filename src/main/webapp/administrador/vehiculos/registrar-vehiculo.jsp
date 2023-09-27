@@ -32,7 +32,7 @@
 				<ul>
 					<li><a href="/alquiler_vehiculos/LoadPage">Registrar</a></li>
 					<li><a href="/alquiler_vehiculos/administrador/vehiculos/modificar-vehiculo.jsp">Modificar</a></li>
-					<li><a href="#">Eliminar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/vehiculos/eliminar-vehiculo.jsp">Eliminar</a></li>
 				</ul>
 			</li>
 			<li><a href="/alquiler_vehiculos/Logout">Cerrar sesión</a></li>

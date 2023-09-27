@@ -30,6 +30,9 @@ public abstract class Accion {
 		case "registrarvehiculo":
 			accion = new RegistrarVehiculoAccion();
 			break;
+		case "eliminarvehiculo":
+			accion = new EliminarVehiculoAccion();
+			break;
 		default:
 			accion = null;
 			break;

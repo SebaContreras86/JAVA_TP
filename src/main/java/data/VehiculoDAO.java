@@ -109,4 +109,26 @@ public class VehiculoDAO {
 			}
 		}
 	}
+
+	public void delete(Vehiculo vehiculo) {
+		PreparedStatement statement = null;
+		String query = "DELETE FROM vehiculos WHERE patente = ?";
+
+		try {
+			statement = DBConnector.getInstancia().getConn().prepareStatement(query);
+			statement.setString(1, vehiculo.getPatente());
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(statement != null) {statement.close();}
+				DBConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
