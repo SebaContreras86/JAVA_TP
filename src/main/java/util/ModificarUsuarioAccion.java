@@ -12,27 +12,27 @@ public class ModificarUsuarioAccion extends Accion {
 	public String ejecutar(HttpServletRequest request, HttpServletResponse response) {		
 		if (!request.getParameter("email").matches(Regex.EMAIL.getRegex())) {
 			request.setAttribute("invalidData", "E-mail no válido");
-			return "administrador/modificar-usuario.jsp";
+			return "administrador/usuarios/modificar-usuario.jsp";
 		}
 		if (!request.getParameter("nombre").matches(Regex.NOMBRE_APELLIDO.getRegex())) {
 			request.setAttribute("invalidData", "Nombre no válido");
-			return "administrador/modificar-usuario.jsp";
+			return "administrador/usuarios/modificar-usuario.jsp";
 		}
 		if (!request.getParameter("apellido").matches(Regex.NOMBRE_APELLIDO.getRegex())) {
 			request.setAttribute("invalidData", "Apellido no válido");
-			return "administrador/modificar-usuario.jsp";
+			return "administrador/usuarios/modificar-usuario.jsp";
 		}
 		if (!request.getParameter("dni").matches(Regex.DNI.getRegex())) {
 			request.setAttribute("invalidData", "DNI no válido");
-			return "administrador/modificar-usuario.jsp";
+			return "administrador/usuarios/modificar-usuario.jsp";
 		}
 		if (!request.getParameter("telefono").matches(Regex.TELEFONO.getRegex())) {
 			request.setAttribute("invalidData", "Número de teléfono no válido");
-			return "administrador/modificar-usuario.jsp";
+			return "administrador/usuarios/modificar-usuario.jsp";
 		}
 		if (!request.getParameter("direccion").matches(Regex.DIRECCION.getRegex())) {
 			request.setAttribute("invalidData", "Dirección no válida");
-			return "administrador/modificar-usuario.jsp";
+			return "administrador/usuarios/modificar-usuario.jsp";
 		}
 		
 		Usuario usuario = new Usuario();
@@ -56,7 +56,7 @@ public class ModificarUsuarioAccion extends Accion {
 		request.getSession().removeAttribute("usuarioBuscado");
 		request.setAttribute("succes", "Modificación completada");
 		
-		return "administrador/modificar-usuario.jsp";
+		return "administrador/usuarios/modificar-usuario.jsp";
 	}
 
 }

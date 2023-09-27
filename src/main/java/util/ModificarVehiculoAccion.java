@@ -25,6 +25,6 @@ public class ModificarVehiculoAccion extends Accion{
 		request.getSession().removeAttribute("vehiculoBuscado");
 		request.setAttribute("succes", "Modificación completada");
 		
-		return "administrador/modificar-vehiculo.jsp";
+		return "administrador/vehiculos/modificar-vehiculo.jsp";
 	}
 }

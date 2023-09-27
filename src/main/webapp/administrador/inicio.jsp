@@ -15,9 +15,9 @@
 			<li><a href="#"><c:out value="${usuario.getFullName()}"/></a></li>
 			<li>Usuarios
 				<ul>
-					<li><a href="registrar-usuario.jsp">Registrar</a></li>
-					<li><a href="modificar-usuario.jsp">Modificar</a></li>
-					<li><a href="eliminar-usuario.jsp">Eliminar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/usuarios/registrar-usuario.jsp">Registrar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/usuarios/modificar-usuario.jsp">Modificar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/usuarios/eliminar-usuario.jsp">Eliminar</a></li>
 				</ul>
 			<li>Tipos de vehículos
 				<ul>
@@ -29,7 +29,7 @@
 			<li>Vehículos
 				<ul>
 					<li><a href="/alquiler_vehiculos/LoadPage">Registrar</a></li>
-					<li><a href="/alquiler_vehiculos/administrador/modificar-vehiculo.jsp">Modificar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/vehiculos/modificar-vehiculo.jsp">Modificar</a></li>
 					<li><a href="#">Eliminar</a></li>
 				</ul>
 			</li>

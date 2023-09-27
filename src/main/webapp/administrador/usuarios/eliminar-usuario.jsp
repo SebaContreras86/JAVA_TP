@@ -17,9 +17,9 @@
 			<li><a href="#"><c:out value="${usuario.getFullName()}"/></a></li>
 			<li>Usuarios
 				<ul>
-					<li><a href="/alquiler_vehiculos/administrador/registrar-usuario.jsp">Registrar</a></li>
-					<li><a href="/alquiler_vehiculos/administrador/modificar-usuario.jsp">Modificar</a></li>
-					<li><a href="/alquiler_vehiculos/administrador/eliminar-usuario.jsp">Eliminar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/usuarios/registrar-usuario.jsp">Registrar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/usuarios/modificar-usuario.jsp">Modificar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/usuarios/eliminar-usuario.jsp">Eliminar</a></li>
 				</ul>
 			</li>
 			<li>Tipos de vehículos
@@ -32,7 +32,7 @@
 			<li>Vehículos
 				<ul>
 					<li><a href="/alquiler_vehiculos/LoadPage">Registrar</a></li>
-					<li><a href="/alquiler_vehiculos/administrador/modificar-vehiculo.jsp">Modificar</a></li>
+					<li><a href="/alquiler_vehiculos/administrador/vehiculos/modificar-vehiculo.jsp">Modificar</a></li>
 					<li><a href="#">Eliminar</a></li>
 				</ul>
 			</li>
@@ -73,6 +73,6 @@
 			<c:if test="${notFound != null}"><span> <c:out value="${notFound}"/> </span></c:if>
 		</section>
 	</main>
-	<c:set var="returnTo" scope="session" value="administrador/eliminar-usuario.jsp"/>
+	<c:set var="returnTo" scope="session" value="administrador/usuarios/eliminar-usuario.jsp"/>
 </body>
 </html>

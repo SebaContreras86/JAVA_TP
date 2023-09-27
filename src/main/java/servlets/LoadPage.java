@@ -18,7 +18,7 @@ public class LoadPage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TipoVehiculoDAO tvDAO = new TipoVehiculoDAO();
 		request.setAttribute("tvDAO", tvDAO);
-		request.getRequestDispatcher("administrador/registrar-vehiculo.jsp").forward(request, response);
+		request.getRequestDispatcher("administrador/vehiculos/registrar-vehiculo.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

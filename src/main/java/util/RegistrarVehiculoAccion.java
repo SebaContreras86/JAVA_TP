@@ -13,7 +13,7 @@ public class RegistrarVehiculoAccion extends Accion {
 		//TO DO validar los datos que vienen en la request
 		Vehiculo vehiculo = new Vehiculo();
 		vehiculo.setAnio(request.getParameter("anio"));
-		vehiculo.setKilometraje(Integer.parseInt(request.getParameter("kilometraje")));
+		vehiculo.setKilometraje(Float.parseFloat(request.getParameter("kilometraje")));
 		vehiculo.setMarca(request.getParameter("marca"));
 		vehiculo.setNroCarroceria(request.getParameter("nro-carroceria"));
 		vehiculo.setPatente(request.getParameter("patente"));
@@ -23,7 +23,7 @@ public class RegistrarVehiculoAccion extends Accion {
 		vDAO.add(vehiculo);
 		request.setAttribute("succes", "Vehículo registrado correctamente!");
 		
-		return "administrador/registrar-vehiculo.jsp";
+		return "administrador/vehiculos/registrar-vehiculo.jsp";
 	}
 
 }

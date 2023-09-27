@@ -16,7 +16,7 @@ public class EliminarUsuarioAccion extends Accion {
 		request.getSession().removeAttribute("usuarioBuscado");
 		request.setAttribute("succes", "Usuario eliminado!");
 		
-		return "administrador/eliminar-usuario.jsp";
+		return "administrador/usuarios/eliminar-usuario.jsp";
 	}
 
 }
